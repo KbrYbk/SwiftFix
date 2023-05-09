@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 400;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.name-section {
+    font-weight: 500;
+}
+
+::-webkit-scrollbar
+
+/* фон самого скроллбара */
+    {
+    width: 6px;
+    /*ширина*/
+}
+
+::-webkit-scrollbar-thumb
+
+/* индикатор прокрутки, перетаскиваемый элемент */
+    {
+    border-radius: 10px;
+    /* закругление */
+    background: #99a09c;
+}
+
+::-webkit-scrollbar-track
+
+/*пустое пространство под индикатором прокрутки.*/
+    {
+    background: #bdb8b3;
+}
+
+header {
+    flex: 0 0 auto;
+    height: 64px;
+}
+
+.nav-link {
+    font-size: 22px;
+    color: #000;
+}
+
+/* ______________slogan________________ */
+.slogan {
+    background-color: #E9E3DC;
+    height: 572px;
+    padding: 0 15%;
+    overflow: hidden;
+}
+
+.pixel_on_slogan {
+    height: 572px;
+}
+
+/* _____________brands________________ */
+.cards-brands {
+    background-color: #D6E2DB;
+    border: none;
+    border-radius: 25px;
+    height: 288px;
+}
+
+.card-title-brand {
+    font-size: 36px;
+    line-height: 43px;
+
+}
+
+.card-img-top {
+    padding: 54px 17% 0 17%;
+    height: 145px;
+}
+
+/* ____________callback_____________ */
+.main-form {
+    background-color: #FAF7F4;
+    height: 288px;
+    border-radius: 25px;
+}
+
+.btn-outline-secondary {
+    border-radius: 25px;
+    border: 2px solid;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    width: 130px;
+}
+
+.form-control {
+    text-align: center;
+    font-size: 16px;
+}
+
+.form-control::placeholder {
+    color: #000000;
+}
+
+.form-control#device_model {
+    border: 2px solid #C2D4E8;
+}
+
+.form-control#name {
+    border: 2px solid #9DB1C8;
+}
+
+.form-control#phone_number {
+    border: 2px solid #7C8C9D;
+}
+
+/* _______Additional services______ */
+.additional_services {
+    background-color: #F1E2C5;
+    border-radius: 25px;
+    height: 429px;
+    overflow: hidden;
+}
+
+.AdditionalServices_img {
+    height: 429px;
+}
+
+.additional_services_name {
+    font-size: 40px;
+}
+
+.additional_services_text {
+    font-size: 26px;
+    line-height: 31px;
+    align-items: center;
+}
+
+/* ________reviews________________ */
+.card_rev {
+    border-radius: 25px;
+    background-color: #F3F2F1;
+}
+.review-name {
+    /*имя пользователя*/
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    align-items: center;
+}
+
+.review-text {
+    /*тест отзыва*/
+    font-size: 26px;
+    line-height: 31px;
+    align-items: center;
+}
+.card-footer-review{
+    background: none;
+    border-top: none;
+    height: 75px;
+}
+.rating_and_date {
+    /*блок с датой и звёздами*/
+    height: 100px;
+}
+
+.date {
+    /*дата*/
+    font-size: 26px;
+    line-height: 31px;
+}
+
+/*звёзды*/
+.rating-result{
+    height: 150px;
+}
+.rating-result span {
+    font-size: 45px;
+    color: #656565;
+}
+
+.rating-result>span:before {
+    content: '★';
+    margin: 0;
+}
+
+.rating-result>span.active {
+    color: #FFC700;
+}
+
+.more_review {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+/* __________footer____________ */
+footer {
+    flex: 0 0 auto;
+    background-color: #ECE3DA;
+    height: 247px;
+    padding: 51px 0;
+}
+
+.social_media {
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social_media_icon {
+    color: #000000;
+    text-decoration: none;
+    transition: ease-in 300ms;
+}
+
+.social_media_icon:hover {
+    color: #A89D89;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.social_media_icon:active {
+    color: #D6E2DB;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.map {
+    border-radius: 25px;
+}
+
+
+
+
+/* _________________________________________________Как нас найти___________________________________ */
+.form-howtocontact {
+    background-color: #FAF7F4;
+    height: 521px;
+    border-radius: 25px;
+
+}
+
+.que {
+    border: 2px solid #7C8C9D;
+    height: 181px;
+}
+
+.social_media_icon_how {
+    color: #353433;
+}
+
+/* ___________________________________________________Услуги________________________________________ */
+table {
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.table>:not(caption)>*>* {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.table-secondary {
+    --bs-table-bg: #E9E3DC;
+    --bs-table-striped-bg: #E2D7CA;
+}
+
+.table-primary {
+    --bs-table-bg: #E7EBEE;
+    --bs-table-striped-bg: #D6E2DB;
+}
+
+@media screen and (max-width:430px) {
+    .mobile-screen {
+        display: none;
+    }
+    .social_media{
+        display: block !important;
+    }
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.popup-content {
+    text-align: center;
+}
