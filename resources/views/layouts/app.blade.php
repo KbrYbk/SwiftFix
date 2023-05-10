@@ -17,7 +17,6 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="{{url('js')}}/main.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('css')}}/main.css">
@@ -25,7 +24,7 @@
 
 <body>
     <header id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{url('svg')}}/Logo.svg" alt="">
@@ -51,10 +50,17 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <!-- @guest
+                        @if(!Auth::check() || !Auth::user()->isAdmin())
+
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin')}}">Админка</a>
+                        </li>
+                        @endif
+                        @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Логин') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
                         </li>
                         @endif
 
@@ -80,28 +86,8 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest -->
-                        @guest
-                        @else
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Выйти') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
                         @endguest
-                        @if(!Auth::check() || !Auth::user()->isAdmin())
 
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/admin')}}">Админка</a>
-                        </li>
-                        @endif
                         <li class="nav-item">
                             <a href="tel:+79835235534" class="nav-link">+7(983)-523-55-34</a>
                         </li>
@@ -116,7 +102,7 @@
     </main>
     <footer class="text-center">
         <a href="#"><img src="{{url('svg/')}}/Logo.svg" alt="logo"></a>
-        <p>Не нашли что искали?<br>Напишите нам и мы вам поможем!</p>
+        <p class="mt-3">Не нашли что искали?<br>Напишите нам и мы вам поможем!</p>
         <div class="social_media d-flex">
             <a href="https://t.me/SwiftFixOmsk" target="_blank" class="social_media_icon">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -135,6 +121,7 @@
             </a>
         </div>
     </footer>
+    <script src="{{url('js')}}/main.js"></script>
 </body>
 
 </html>

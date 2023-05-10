@@ -37,12 +37,14 @@ Route::get('/services', [ServicesController::class, 'services'])->name('Services
 
 //админ
 Route::group(['middleware' => 'auth'], function () {
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
-Route::get('/admin/brand/delete/{id}', [AdminController::class, 'delete_phonebrands'])->name('delbrand')->middleware('admin'); //удаление бренда с главной страницы
-Route::get('/admin/callback/delete/{id}', [AdminController::class, 'delete_callback'])->name('delcall')->middleware('admin'); //удаление заявки на звонок
-Route::get('/admin/services/delete/{id}', [AdminController::class, 'delete_services'])->name('delserv')->middleware('admin'); //удаление услуги из таблицы
-Route::get('/brands/create', [AdminController::class, 'create'])->name('brands.create')->middleware('admin');//отправка информации из формы добавления бренда
-Route::post('/brands', [AdminController::class, 'store'])->name('brands.store')->middleware('admin');//страница на форму добавления бренда
-Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin');//
-Route::post('/services', [AdminController::class, 'storeservices'])->name('services.store')->middleware('admin');
+    Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
+    // ______________________________________________________Ссылки на удаление________________________________________________
+    Route::get('/admin/brand/delete/{id}', [AdminController::class, 'delete_phonebrands'])->name('delbrand')->middleware('admin'); //удаление бренда с главной страницы
+    Route::get('/admin/callback/delete/{id}', [AdminController::class, 'delete_callback'])->name('delcall')->middleware('admin'); //удаление заявки на звонок
+    Route::get('/admin/services/delete/{id}', [AdminController::class, 'delete_services'])->name('delserv')->middleware('admin'); //удаление услуги из таблицы
+    //_______________________________________________________Ссылки на создание_________________________________________________
+    Route::post('/brands', [AdminController::class, 'store'])->name('brands.store')->middleware('admin'); //страница на форму добавления бренда
+    Route::get('/brands/create', [AdminController::class, 'create'])->name('brands.create')->middleware('admin'); //отправка информации из формы добавления бренда
+    Route::post('/services', [AdminController::class, 'storeservices'])->name('services.store')->middleware('admin'); //страница на форму добавления услуги в таблицу
+    Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin'); //отправка информации из формы добавления услуги в таблицу
 });

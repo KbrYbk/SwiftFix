@@ -57,6 +57,11 @@ h3 {
     font-weight: 500;
 }
 
+.navbar-toggler {
+    border: 2px solid #3E4751;
+    border-radius: 10px;
+}
+
 ::-webkit-scrollbar
 
 /* фон самого скроллбара */
@@ -92,15 +97,13 @@ header {
 }
 
 /* ______________slogan________________ */
-.slogan {
+.slogan-container {
     background-color: #E9E3DC;
-    height: 572px;
-    padding: 0 15%;
-    overflow: hidden;
 }
 
-.pixel_on_slogan {
-    height: 572px;
+.slogan {
+    /* padding: 0 15%; */
+    overflow: hidden;
 }
 
 /* _____________brands________________ */
@@ -109,12 +112,12 @@ header {
     border: none;
     border-radius: 25px;
     height: 288px;
+    width: 222.75px;
 }
 
 .card-title-brand {
     font-size: 36px;
     line-height: 43px;
-
 }
 
 .card-img-top {
@@ -122,10 +125,25 @@ header {
     height: 145px;
 }
 
+.menu {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+}
+
+.nav-scroller__item {
+    padding: 0.5rem 1.25rem;
+    /*отступы между картами брендов*/
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+    /*убирает нижний скрол у брендов*/
+}
+
 /* ____________callback_____________ */
 .main-form {
     background-color: #FAF7F4;
-    height: 288px;
     border-radius: 25px;
 }
 
@@ -165,13 +183,12 @@ header {
 .additional_services {
     background-color: #F1E2C5;
     border-radius: 25px;
-    height: 429px;
     overflow: hidden;
 }
 
-.AdditionalServices_img {
+/* .AdditionalServices_img {
     height: 429px;
-}
+} */
 
 .additional_services_name {
     font-size: 40px;
@@ -186,8 +203,10 @@ header {
 /* ________reviews________________ */
 .card_rev {
     border-radius: 25px;
+    border: none;
     background-color: #F3F2F1;
 }
+
 .review-name {
     /*имя пользователя*/
     font-weight: 500;
@@ -202,14 +221,11 @@ header {
     line-height: 31px;
     align-items: center;
 }
-.card-footer-review{
+
+.card-footer-review {
     background: none;
     border-top: none;
-    height: 75px;
-}
-.rating_and_date {
-    /*блок с датой и звёздами*/
-    height: 100px;
+    /* height: 75px; */
 }
 
 .date {
@@ -219,9 +235,6 @@ header {
 }
 
 /*звёзды*/
-.rating-result{
-    height: 150px;
-}
 .rating-result span {
     font-size: 45px;
     color: #656565;
@@ -246,7 +259,7 @@ header {
 footer {
     flex: 0 0 auto;
     background-color: #ECE3DA;
-    height: 247px;
+    /* height: 247px; */
     padding: 51px 0;
 }
 
@@ -281,12 +294,10 @@ footer {
 
 
 
-/* _________________________________________________Как нас найти___________________________________ */
+/* _________________________________________________HowToContact___________________________________ */
 .form-howtocontact {
     background-color: #FAF7F4;
-    height: 521px;
     border-radius: 25px;
-
 }
 
 .que {
@@ -295,10 +306,21 @@ footer {
 }
 
 .social_media_icon_how {
+    width: 180px;
     color: #353433;
 }
 
-/* ___________________________________________________Услуги________________________________________ */
+.icons {
+    width: 101.34px;
+}
+
+.text-icon {
+    font-weight: 500;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* ___________________________________________________Services________________________________________ */
 table {
     border-radius: 20px;
     overflow: hidden;
@@ -321,29 +343,85 @@ table {
     --bs-table-striped-bg: #D6E2DB;
 }
 
+/* __________________________________mobile screens___________________ */
+@media screen and (max-width:991px) {
+    .slogan {
+        padding-top: 56px;
+        text-align: center;
+    }
+
+    .slogan-top {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 43px;
+    }
+
+    .slogan-text {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 38px;
+
+    }
+
+    .additional_services_name {
+        padding-top: 48px;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    .additional_services_text {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+    }
+}
+
 @media screen and (max-width:430px) {
     .mobile-screen {
         display: none;
     }
-    .social_media{
-        display: block !important;
+
+    .social_media_icon_how {
+        width: 103.93px;
     }
-}
 
+    .text-icon {
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+    }
 
+    .icons {
+        width: 56.93px;
+    }
 
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-}
+    .name-block {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+    }
 
-.popup-content {
-    text-align: center;
+    .additional_services_name {
+        font-size: 32px;
+    }
+
+    .additional_services_text {
+        font-size: 24px;
+    }
+
+    .card-footer-review {
+        display: block !important;
+        text-align: center;
+    }
+
+    .card-body-rev {
+        text-align: center;
+    }
+
+    .review-text {
+        text-align: left;
+
+    }
 }

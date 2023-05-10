@@ -9,14 +9,15 @@ use App\Models\Callback;
 
 class AdminController extends Controller
 {
+    //____________________________________________________________Вывод информации с базы для админа_________________________________________________________
     public function admin()
     {
-        $phone = phonebrands::OrderBy('id','desc')->get();
+        $phone = phonebrands::OrderBy('id', 'desc')->get();
         $services = Services::all();
-        $callback = Callback::OrderBy('id','desc')->get();
+        $callback = Callback::OrderBy('id', 'desc')->get();
         return view('admin', compact('phone', 'services', 'callback'));
     }
-
+    //____________________________________________________________Удаление информации с базы для админа_________________________________________________________
     //удаление бренда телефона с главной страницы
     public function delete_phonebrands($id)
     {
@@ -37,13 +38,14 @@ class AdminController extends Controller
         Services::where('id', $id)->delete();
         return redirect(route('admin'));
     }
-
-    //добавление бренда на главную страницу
+    //____________________________________________________________Добавление информации в базу для админа_________________________________________________________
+    //_____________добавление бренда на главную страницу____________________________
+    //ссылка на отправку формы добавления бренда
     public function create()
     {
         return view('addbrand');
     }
-
+    //отправка информации которая вводилась в форму
     public function store(Request $request)
     {
         $request->validate([
@@ -65,18 +67,13 @@ class AdminController extends Controller
 
         return redirect()->route('admin')->with('success', 'Бренд успешно добавлен');
     }
-    //таблицы
-    public function services()
-    {
-        $services = Services::all();
-        return view('services', compact('services'));
-    }
-
+    //________________________таблицы_______________________________________________
+    //ссылка на отправку формы добавления услуги
     public function createservices()
     {
         return view('addservices');
     }
-
+    //отправка информации которая вводилась в форму
     public function storeservices(Request $request)
     {
         $request->validate([
