@@ -1,28 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var callbackForm = document.getElementById('callbackForm');
-    var popup = document.getElementById('popup');
+var menu = document.querySelector('.menu');
+var isMouseDown = false;
+var startX;
+var scrollLeft;
 
-    callbackForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+menu.addEventListener('mousedown', function (event) {
+    isMouseDown = true;
+    startX = event.pageX - menu.offsetLeft;
+    scrollLeft = menu.scrollLeft;
+});
 
-        // Отправка формы с использованием Fetch API
-        fetch(callbackForm.action, {
-            method: callbackForm.method,
-            body: new FormData(callbackForm)
-        })
-            .then(function (response) {
-                if (response.ok) {
-                    // Отображение всплывающего окна
-                    popup.style.display = 'block';
+menu.addEventListener('mouseup', function () {
+    isMouseDown = false;
+});
 
-                    // Скрытие всплывающего окна через 3 секунды
-                    setTimeout(function () {
-                        popup.style.display = 'none';
-                    }, 3000);
-                }
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
-    });
+menu.addEventListener('mousemove', function (event) {
+    if (!isMouseDown) return;
+    event.preventDefault();
+    var x = event.pageX - menu.offsetLeft;
+    var walk = (x - startX) * 2;
+    menu.scrollLeft = scrollLeft - walk;
 });
