@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\phonebrands;
 use App\Models\Services;
 use App\Models\Callback;
+use \Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
@@ -43,24 +44,40 @@ class AdminController extends Controller
     //ссылка на отправку формы добавления бренда
     public function create()
     {
-        return view('addbrand');
+        return view('home');
     }
     //отправка информации которая вводилась в форму
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
+            'color' => 'required',
+            'text' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img_slogan' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3048',
         ]);
 
         $brand = new phonebrands;
         $brand->name = $request->name;
+        $brand->color = $request->color;
+        $brand->text = $request->text;
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
             $imageName = time() . '.' . $img->getClientOriginalExtension();
             $img->move(public_path('images'), $imageName);
             $brand->img = $imageName;
+        }
+
+        if ($request->hasFile('img_slogan')) {
+            $imgSlogan = $request->file('img_slogan');
+            $imgSloganName = time() . '_slogan.' . $imgSlogan->getClientOriginalExtension();
+            
+            // Применяем изменения размера изображения
+            $resizedImageSlogan = Image::make($imgSlogan)->resize(800, 600);
+            $resizedImageSlogan->save(public_path('images') . '/' . $imgSloganName);
+            
+            $brand->img_slogan = $imgSloganName;
         }
 
         $brand->save();

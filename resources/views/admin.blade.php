@@ -44,8 +44,8 @@
         </div>
         @endforeach
     </div>
-    <a href="{{url('/brands/create')}}" class="btn btn-outline-secondary">Добавить бренд</a>
-
+    <a href="{{url('/brands/create')}}" class="btn btn-outline-secondary mt-3">Добавить бренд</a>
+ 
     <!-- Блок с услугами -->
     <h4 class="text-center my-4">Услуги</h4>
     <div class="row row-cols-5">

@@ -15,7 +15,7 @@
                         </svg>
                     </div>
                     <div class="col">
-                        <h3> <a href="https://yandex.ru/maps/-/CCUkQNrR1B" target="_blank">ул. Ленина, 15</a> 
+                        <h3> <a href="https://yandex.ru/maps/-/CCUkQNrR1B" target="_blank" class="link">ул. Ленина, 15</a> 
                         </h3>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                         </svg>
                     </div>
                     <div class="col">
-                        <h3> <a href="tel:+7(999)-123-45-67">+7(999)-123-45-67</a> <br>
-                            <a href="tel:+7(999)-987-65-43">+7(999)-987-65-43</a>
+                        <h3> <a href="tel:+7(999)-123-45-67" class="link">+7(999)-123-45-67</a> <br>
+                            <a href="tel:+7(999)-987-65-43" class="link">+7(999)-987-65-43</a>
                         </h3>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         </svg>
                     </div>
                     <div class="col">
-                        <h3><a href="mailto:swift-fix@gmail.com">swift-fix@gmail.com</a></h3>
+                        <h3><a href="mailto:swift-fix@gmail.com" class="link">swift-fix@gmail.com</a></h3>
                     </div>
                 </div>
             </div>

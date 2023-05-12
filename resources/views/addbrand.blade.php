@@ -16,8 +16,23 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="img">Изображение бренда</label>
-                            <input type="file" name="img" class="form-control-file" required>
+                            <label for="formFile" class="form-label">Изображение бренда</label>
+                            <input class="form-control" name="img" type="file" id="formFile" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="formFile" class="form-label">Изображение телефона на отдельной странице бренда</label>
+                            <input class="form-control" name="img_slogan" type="file" id="formFile" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleColorInput" class="form-label">Выберите цвет фона на отдельной странице бренда:</label>
+                            <input type="color" name="color" class="form-control form-control-color" id="exampleColorInput" value="#ffffff" title="Choose your color">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleColorInput" class="form-label">Выберите цвет текста на отдельной странице бренда:</label>
+                            <input type="color" name="text" class="form-control form-control-color" id="exampleColorInput" value="#000000" title="Choose your color">
                         </div>
 
                         <button type="submit" class="btn btn-outline-secondary">Добавить</button>

@@ -20,3 +20,17 @@ menu.addEventListener('mousemove', function (event) {
     var walk = (x - startX) * 2;
     menu.scrollLeft = scrollLeft - walk;
 });
+
+//всплывающая форма
+function show_popap(id_popap) {
+    var id = "#" + id_popap;
+    $(id).addClass('active');
+}
+
+function hide_popap(id_popap) {
+    var id = "#" + id_popap;
+    $(id).delClass('active');
+}
+
+
+
