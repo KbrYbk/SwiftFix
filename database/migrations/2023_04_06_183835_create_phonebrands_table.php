@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('phonebrands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('color');
+            $table->string('text');
             $table->string('img');
+            $table->string('img_slogan');
             $table->timestamps();
         });
     }
