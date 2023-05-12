@@ -22,6 +22,7 @@ class User extends Authenticatable
         'login',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -33,11 +34,17 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    //admin column
     public function isAdmin()
     {
         return $this->role === 'admin';
     }
-
+    //column of reviews
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    //colum 
     /**
      * The attributes that should be cast.
      *

@@ -104,6 +104,7 @@ header {
 .slogan {
     /* padding: 0 15%; */
     overflow: hidden;
+    /* height: 572px; */
 }
 
 /* _____________brands________________ */
@@ -129,6 +130,10 @@ header {
     flex-wrap: nowrap;
     overflow-x: auto;
 
+}
+
+.link:hover {
+    color: #524d4d;
 }
 
 .nav-scroller__item {
@@ -235,7 +240,7 @@ header {
 }
 
 /*звёзды*/
-.rating-result span {
+/* .rating-result span {
     font-size: 45px;
     color: #656565;
 }
@@ -253,7 +258,7 @@ header {
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-}
+} */
 
 /* __________footer____________ */
 footer {
@@ -343,6 +348,96 @@ table {
     --bs-table-striped-bg: #D6E2DB;
 }
 
+.overlay {
+    position: fixed;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.overlay .flex-popap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay .flex-popap .popap {
+    background: #FAF7F4;
+    border: 2px solid #3E4751;
+    border-radius: 25px;
+    position: relative;
+    /* padding: 35px 25px; */
+    margin: 0 10px;
+    width: 1200px;
+    overflow: auto;
+}
+
+.popap span {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ________________________________Страница пользователя____________________________________________ */
+/* аватарки */
+
+.avatar {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+}
+
+/* рейтинг */
+.rating {
+    display: inline-block;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    float: right;
+    cursor: pointer;
+    color: #656565;
+    font-size: 45px;
+}
+
+.rating label:before {
+    content: '★';
+    /* Код символа звезды */
+}
+
+.rating input:checked~label {
+    color: #FFC700;
+    /* Цвет выбранных звездочек */
+}
+
+.star-filled {
+    font-size: 45px;
+    color: #FFC700;
+    /* Цвет заполненных звездочек */
+}
+
+.star-empty {
+    font-size: 45px;
+    color: #656565;
+    fill: #656565;
+    /* Цвет пустых звездочек */
+}
+
 /* __________________________________mobile screens___________________ */
 @media screen and (max-width:991px) {
     .slogan {
@@ -380,6 +475,11 @@ table {
 @media screen and (max-width:430px) {
     .mobile-screen {
         display: none;
+    }
+
+    .pixel_on_slogan {
+        height: 410px;
+
     }
 
     .social_media_icon_how {

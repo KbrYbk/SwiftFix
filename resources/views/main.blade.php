@@ -22,12 +22,14 @@
     <nav class="menu d-flex">
         @foreach($brand as $bp)
         <div class="nav-scroller__item">
-            <div class="card cards-brands">
-                <img src="{{ asset('images/' . $bp->img) }}" alt="logo_brands" class="card-img-top">
-                <div class="card-body  d-flex align-items-center justify-content-center">
-                    <h5 class="card-title-brand text-center">{{$bp->name}}</h5>
+            <a href="{{url('/brandpage')}}/{{$bp->id}}" class="link">
+                <div class="card cards-brands">
+                    <img src="{{ asset('images/' . $bp->img) }}" alt="logo_brands" class="card-img-top">
+                    <div class="card-body  d-flex align-items-center justify-content-center">
+                        <h5 class="card-title-brand text-center">{{$bp->name}}</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
     </nav>
@@ -62,6 +64,35 @@
             </div>
         </div>
     </form>
+    <div id="message"></div>
+    <script>
+        $(document).ready(function() {
+            $('.main-form').submit(function(e) {
+                e.preventDefault(); // Предотвратить отправку формы
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: form.serialize(), // Сериализовать данные формы
+                    success: function(response) {
+                        if (response.message === 'Форма успешно отправывыалена') {
+                            // Вывести сообщение об успешной отправке
+                            $('#message').html('<div class="alert alert-success">' + response.message + '</div>'); // выводим сообщение об успехе
+                            form.trigger('reset'); // Сбросить поля формы
+                        }
+                    },
+                    error: function() {
+                        alert('Ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+                    }
+                });
+            });
+        });
+    </script>
+
+
 </section>
 <!-- _________________________________Additional services______________________________________________ -->
 <section class="container my-4">
@@ -79,63 +110,71 @@
 <!-- ______________________________Review__________________________________________ -->
 <section class="container my-4" id="review">
     <h1 class="text-center name-section my-5">Отзывы наших клиентов</h1>
-    <div class="row row-cols-1 row-cols-lg-2">
-        <div class="col mb-4">
+
+
+    <div class="row row-cols-1 row-cols-lg-2" id="reviewsContainer">
+        @php
+        $visibleReviews = 2; // Количество отзывов, которые видны изначально
+        @endphp
+        @foreach ($reviews as $index => $review)
+        <div class="col mb-4 reviewCard" style="{{ $index >= $visibleReviews ? 'display:none' : '' }}">
             <div class="card card_rev p-4 h-100">
                 <div class="card-body card-body-rev">
                     <div class="row">
-                        <div class="col-12 col-md-3 mb-3">
-                            <img src="{{url('img/review')}}/Gosling.png" alt="review_avatar">
+                        <div class="col-12 col-md-4 mb-3">
+                            <img src="{{ asset('avatars/' . $review->user->avatar) }}" class=" avatar" alt="Аватарка пользователя">
                         </div>
                         <div class="col">
-                            <h5 class="card-title review-name mb-3">Гослинг</h5>
-                            <p class="card-text review-text">Реально классно спасибо за быструю работу!!!1!</p>
+                            <h5 class="card-title review-name mb-3">{{ $review->user->name }}</h5>
+                            <p class="card-text review-text">{{ $review->content }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer d-flex card-footer-review">
                     <div class="rating-result me-auto">
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
+                        @for ($i = 1; $i <= 5; $i++) @if ($i <=$review->rating)
+                            <span class="star-filled">★</span>
+                            @else
+                            <span class="star-empty">★</span>
+                            @endif
+                            @endfor
                     </div>
                     <div class="date ms-auto mt-4">
-                        <p>15.03.2023</p>
+                        <p>{{ $review->created_at->format('d.m.Y') }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col mb-4 ">
-            <div class="card card_rev p-4 h-100">
-                <div class="card-body card-body-rev ">
-                    <div class="row">
-                        <div class="col-12 col-md-3 mb-3">
-                            <img src="{{url('img/review')}}/Derden.png" alt="review_avatar">
-                        </div>
-                        <div class="col">
-                            <h5 class="card-title review-name mb-3">Кто</h5>
-                            <p class="card-text review-text">Выполнили работу быстро, но мастер сказал что я небережно пользуюсь своим телефоном.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer d-flex card-footer-review">
-                    <div class="rating-result me-auto">
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span></span>
-                    </div>
-                    <div class="date ms-auto mt-4">
-                        <p>27.02.2023</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
+
+    <div class="mt-3">
+        <button type="button" class="btn btn-outline-secondary" id="toggleReviewsButton">
+            @if (count($reviews) > $visibleReviews)
+            Ещё отзывы
+            @else
+            Скрыть отзывы
+            @endif
+        </button>
     </div>
-    <p class="mt-3 more_review">Ещё отзывы</p>
-</section>
-@endsection
+
+    <script>
+        $(document).ready(function() {
+            var $reviewsContainer = $('#reviewsContainer');
+            var $toggleReviewsButton = $('#toggleReviewsButton');
+            var $reviewCards = $reviewsContainer.find('.reviewCard');
+            var visibleReviews = <?php echo $visibleReviews; ?>;
+            var totalReviews = <?php echo count($reviews); ?>;
+            var reviewsHidden = true;
+
+            $toggleReviewsButton.on('click', function() {
+                for (var i = visibleReviews; i < totalReviews; i++) {
+                    $reviewCards.eq(i).toggle(reviewsHidden);
+                }
+
+                $toggleReviewsButton.text(reviewsHidden ? 'Скрыть отзывы' : 'Ещё отзывы');
+                reviewsHidden = !reviewsHidden;
+            });
+        });
+    </script>
+    @endsection

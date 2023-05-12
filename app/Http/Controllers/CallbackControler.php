@@ -18,7 +18,6 @@ class CallbackControler extends Controller
         $callbackRequest = Callback::create($validatedData);
 
         // Дополнительные действия, если необходимо
-
-        return redirect()->back()->with('success', 'Заявка на обратный звонок успешно отправлена.');
+        return response()->json(['message' => 'Форма успешно отправлена']);
     }
 }

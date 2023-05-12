@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PhoneBrand;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\CallbackControler;
-use App\Models\Callback;
+use App\Http\Controllers\PhoneBrand; //контроллер с брендами телефонов
+use App\Http\Controllers\AdminController; //контроллер админа
+use App\Http\Controllers\ServicesController; //контроллер услуг
+use App\Http\Controllers\CallbackControler; //контроллер обратного звонка
+use App\Http\Controllers\BrandController; //контроллер отдельной страницы бренда телефона
+use App\Http\Controllers\ReviewController; //контроллер с отзывами пользователей
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,8 @@ Route::get('/HowToContact', function () {
 
 //таблица услуг
 Route::get('/services', [ServicesController::class, 'services'])->name('ServicesController'); // услуги
-
+//страница бренда
+Route::get('/brandpage/{id}', [BrandController::class, 'output'])->name('BrandPage');
 //админ
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
@@ -48,3 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/services', [AdminController::class, 'storeservices'])->name('services.store')->middleware('admin'); //страница на форму добавления услуги в таблицу
     Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin'); //отправка информации из формы добавления услуги в таблицу
 });
+
+
+Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload');
+
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
