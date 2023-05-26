@@ -30,7 +30,8 @@
                             <form action="{{ route('reviews.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content" id="content" required></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    name="content" id="content" required></textarea>
                                 </div>
                                 <div class="rating mb-3">
                                     <input type="radio" id="star5" name="rating" value="5">
@@ -48,7 +49,8 @@
                                 $hasReview = Auth::user()->reviews()->exists();
                                 @endphp
 
-                                <button type="submit" class="btn btn-outline-secondary mt-3" {{ $hasReview ? 'disabled' : '' }}>Отправить отзыв</button>
+                                <button type="submit" class="btn btn-outline-secondary mt-3" {{ $hasReview ? 'disabled' : '' }}>
+                                    Отправить отзыв</button>
                                 <!-- <button type="submit" class="btn btn-outline-secondary mt-3">Отправить отзыв</button> -->
                             </form>
                             @else

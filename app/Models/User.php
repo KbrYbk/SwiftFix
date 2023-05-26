@@ -42,7 +42,7 @@ class User extends Authenticatable
     //column of reviews
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(review::class);
     }
     //colum 
     /**
@@ -54,3 +54,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
+    

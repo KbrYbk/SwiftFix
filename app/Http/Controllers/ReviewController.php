@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Review;
+use App\Models\review;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
@@ -17,7 +17,7 @@ class ReviewController extends Controller
         ]);
 
         // Создание нового отзыва для текущего пользователя
-        $review = new Review;
+        $review = new review;
         $review->content = $validatedData['content'];
         $review->rating = $validatedData['rating'];
         $review->user_id = Auth::id();

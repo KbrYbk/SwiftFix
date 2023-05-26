@@ -12,7 +12,7 @@ class PhoneBrand extends Controller
     public function main()
     {
         $brand = phonebrands::OrderBy('id', 'desc')->get();  // Вывод брендов
-        $reviews = Review::OrderBy('id','desc')->get();                            // Вывод отзывов
+        $reviews = Review::OrderBy('id','desc')->get();      // Вывод отзывов
         return view('main', compact('brand', 'reviews'));
     }
 }

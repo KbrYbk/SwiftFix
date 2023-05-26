@@ -44,43 +44,34 @@ class HomeController extends Controller
         ]);
 
         $user = Auth::user();
-
-        // if ($request->hasFile('avatar')) {
-        //     $avatar = $request->file('avatar');
-        //     $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
-        //     $avatar->move(public_path('avatars'), $avatarName);
-
-        //     $user->avatar = $avatarName;
-        //     $user->save();
-        // }
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
-        
+
             // Создаем экземпляр Intervention Image
             $image = Image::make($avatar);
-        
+
             // Устанавливаем максимальное значение размера в байтах (2 МБ = 2097152 байта)
             $maxSizeInBytes = 2097152;
-        
+
             // Проверяем размер изображения и сжимаем его, если необходимо
             if ($image->filesize() > $maxSizeInBytes) {
                 $image->resize(1080, 1080, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
-        
+
                 // Сохраняем сжатое изображение
                 $image->save(public_path('avatars/' . $avatarName), 75);
             } else {
                 // Сохраняем оригинальное изображение
                 $avatar->move(public_path('avatars'), $avatarName);
             }
-        
+
             $user->avatar = $avatarName;
             $user->save();
         }
-    
+
         return redirect()->back();
     }
 }

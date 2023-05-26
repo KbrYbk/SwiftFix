@@ -18,6 +18,6 @@ class CallbackControler extends Controller
         $callbackRequest = Callback::create($validatedData);
 
         // Дополнительные действия, если необходимо
-        return response()->json(['message' => 'Форма успешно отправлена']);
+        return redirect()->back();
     }
 }
