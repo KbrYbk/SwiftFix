@@ -21,6 +21,10 @@ main {
     flex: 1 0 auto;
 }
 
+nav {
+    z-index: 2;
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -98,6 +102,7 @@ header {
 
 /* ______________slogan________________ */
 .slogan-container {
+    
     background-color: #E9E3DC;
 }
 

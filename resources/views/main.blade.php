@@ -10,7 +10,7 @@
                 <h2 class="slogan-text">Восстановите свою мобильную жизнь в мгновение ока!</h2>
             </div>
             <div class="col-lg-6 order-lg-1">
-                <img src="{{url('/img')}}/pixel.png" alt="pixel7" class="pixel_on_slogan w-100">
+                <img src="{{url('img/')}}/Pixel.png" alt="pixel7" class="pixel_on_slogan w-100">
             </div>
         </div>
 
@@ -37,12 +37,13 @@
 <!-- _________________________________Callback Form______________________________________________ -->
 <section class="container my-4 ">
     <h1 class="text-center name-section mt-4">Нет подходящего бренда?</h1>
-    <form action="{{ route('callback') }}" method="POST" class="mt-5 p-5 main-form">
+    <form action="{{ route('callback') }}" method="POST" class="mt-5 p-5 main-form" name="form1">
         <h1 class="text-center mb-4 name-block">Напишите модель вашего устройства,<br>мы вам обязательно позвоним</h1>
         @csrf
         <div class="row align-items-center">
             <div class="col-12 col-lg mb-3">
-                <input type="text" name="device_model" id="device_model" class="form-control" placeholder="Модель вашего устройства" required>
+                <input type="text" name="device_model" id="device_model" class="form-control" 
+                placeholder="Модель вашего устройства" required>
                 @error('device_model')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -54,7 +55,8 @@
                 @enderror
             </div>
             <div class="col-12 col-lg mb-3">
-                <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder=" Ваш номер телефона" required>
+                <input type="text" name="phone_number" id="phone_number" class="form-control" 
+                placeholder=" Ваш номер телефона" required>
                 @error('phone_number')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -64,35 +66,6 @@
             </div>
         </div>
     </form>
-    <div id="message"></div>
-    <script>
-        $(document).ready(function() {
-            $('.main-form').submit(function(e) {
-                e.preventDefault(); // Предотвратить отправку формы
-
-                var form = $(this);
-                var url = form.attr('action');
-
-                $.ajax({
-                    type: 'POST',
-                    url: url,
-                    data: form.serialize(), // Сериализовать данные формы
-                    success: function(response) {
-                        if (response.message === 'Форма успешно отправывыалена') {
-                            // Вывести сообщение об успешной отправке
-                            $('#message').html('<div class="alert alert-success">' + response.message + '</div>'); // выводим сообщение об успехе
-                            form.trigger('reset'); // Сбросить поля формы
-                        }
-                    },
-                    error: function() {
-                        alert('Ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
-                    }
-                });
-            });
-        });
-    </script>
-
-
 </section>
 <!-- _________________________________Additional services______________________________________________ -->
 <section class="container my-4">
@@ -122,7 +95,8 @@
                 <div class="card-body card-body-rev">
                     <div class="row">
                         <div class="col-12 col-md-4 mb-3">
-                            <img src="{{ asset('avatars/' . $review->user->avatar) }}" class=" avatar" alt="Аватарка пользователя">
+                            <img src="{{ asset('avatars/' . $review->user->avatar) }}" class=" avatar" 
+                            alt="Аватарка пользователя">
                         </div>
                         <div class="col">
                             <h5 class="card-title review-name mb-3">{{ $review->user->name }}</h5>
@@ -131,7 +105,7 @@
                     </div>
                 </div>
                 <div class="card-footer d-flex card-footer-review">
-                    <div class="rating-result me-auto">
+                    <div class="rating-result d-flex me-auto">
                         @for ($i = 1; $i <= 5; $i++) @if ($i <=$review->rating)
                             <span class="star-filled">★</span>
                             @else

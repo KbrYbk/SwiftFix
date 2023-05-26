@@ -44,7 +44,7 @@ class AdminController extends Controller
     //ссылка на отправку формы добавления бренда
     public function create()
     {
-        return view('home');
+        return view('addbrand');
     }
     //отправка информации которая вводилась в форму
     public function store(Request $request)

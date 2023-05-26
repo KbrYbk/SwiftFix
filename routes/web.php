@@ -22,10 +22,8 @@ use App\Http\Controllers\ReviewController; //контроллер с отзыв�
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 //главная страница
-Route::get('/', [PhoneBrand::class, 'main'])->name('main');
+Route::get('/', [PhoneBrand::class, 'main'])->name('main');//вывод брендов и отзывов на главную страницу
 Route::post('/callback-request', [CallbackControler::class, 'callback'])->name('callback');
 
 //страница где нас найти
@@ -51,7 +49,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin'); //отправка информации из формы добавления услуги в таблицу
 });
 
-
+//пользователь
 Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload');
 
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

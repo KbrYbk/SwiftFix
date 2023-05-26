@@ -25,12 +25,12 @@
                             <input class="form-control" name="img_slogan" type="file" id="formFile" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="exampleColorInput" class="form-label">Выберите цвет фона на отдельной странице бренда:</label>
                             <input type="color" name="color" class="form-control form-control-color" id="exampleColorInput" value="#ffffff" title="Choose your color">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="exampleColorInput" class="form-label">Выберите цвет текста на отдельной странице бренда:</label>
                             <input type="color" name="text" class="form-control form-control-color" id="exampleColorInput" value="#000000" title="Choose your color">
                         </div>
