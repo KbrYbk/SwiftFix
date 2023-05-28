@@ -18,14 +18,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="{{url('js')}}/main.js"></script>
-    <script src="{{url('js')}}/how.js"></script>
-    <script src="{{url('js')}}/services.js"></script>
-    <script src="{{url('js')}}/onebrand.js"></script>
-
-
-
-
+    <script src="{{asset('js')}}/form-validation.js"></script>
+    <script src="{{asset('js')}}/popup.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('css')}}/main.css">
 </head>

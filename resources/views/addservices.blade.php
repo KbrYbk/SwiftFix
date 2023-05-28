@@ -4,7 +4,7 @@
 <div class="container pt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card main-form">
                 <div class="card-header">Добавление новой услуги</div>
                 <div class="card-body">
                     <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
