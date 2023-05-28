@@ -17,7 +17,7 @@
                 <th scope="row" class="col-8">{{$sv->name}}</th>
                 <td class="col-2">{{$sv->price}}</td>
                 <td class="col-1 mobile-screen">
-                    <button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Расчитать стоимость</button>
+                    <button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Записаться</button>
                 </td>
             </tr>
             @endforeach

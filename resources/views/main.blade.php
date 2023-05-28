@@ -42,27 +42,19 @@
         @csrf
         <div class="row align-items-center">
             <div class="col-12 col-lg mb-3">
-                <input type="text" name="device_model" id="device_model" class="form-control" 
-                placeholder="Модель вашего устройства" required>
-                @error('device_model')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                <input type="text" name="device_model" id="device_model" class="form-control" placeholder="Модель вашего устройства" required>
+
             </div>
             <div class="col-12 col-lg mb-3">
                 <input type="text" name="name" id="name" class="form-control" placeholder="Ваше имя" required>
-                @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+
             </div>
             <div class="col-12 col-lg mb-3">
-                <input type="text" name="phone_number" id="phone_number" class="form-control" 
-                placeholder=" Ваш номер телефона" required>
-                @error('phone_number')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder=" Ваш номер телефона" required>
+    
             </div>
             <div class="col-12 col-lg-2 mb-3 text-center">
-                <button type="submit" class="btn btn-outline-secondary">Расчитать стоимость</button>
+                <button type="submit" class="btn btn-outline-secondary">Отправить</button>
             </div>
         </div>
     </form>
@@ -95,8 +87,7 @@
                 <div class="card-body card-body-rev">
                     <div class="row">
                         <div class="col-12 col-md-4 mb-3">
-                            <img src="{{ asset('avatars/' . $review->user->avatar) }}" class=" avatar" 
-                            alt="Аватарка пользователя">
+                            <img src="{{ asset('avatars/' . $review->user->avatar) }}" class=" avatar" alt="Аватарка пользователя">
                         </div>
                         <div class="col">
                             <h5 class="card-title review-name mb-3">{{ $review->user->name }}</h5>
