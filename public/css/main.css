@@ -40,7 +40,6 @@ h6 {
 }
 
 h1 {
-    font-weight: 500;
     font-size: 36px;
     line-height: 43px;
 }
@@ -102,16 +101,18 @@ header {
 
 /* ______________slogan________________ */
 .slogan-container {
-    
+
     background-color: #E9E3DC;
 }
 
 .slogan {
     /* padding: 0 15%; */
     overflow: hidden;
-    /* height: 572px; */
+    height: 572px;
 }
-
+.pixel_on_slogan{
+    height: 572px;
+}
 /* _____________brands________________ */
 .cards-brands {
     background-color: #D6E2DB;
@@ -162,6 +163,8 @@ header {
     border: 2px solid;
     justify-content: center;
     align-items: center;
+    padding: 10px  13px;
+    gap: 10px;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
@@ -244,26 +247,6 @@ header {
     line-height: 31px;
 }
 
-/*звёзды*/
-/* .rating-result span {
-    font-size: 45px;
-    color: #656565;
-}
-
-.rating-result>span:before {
-    content: '★';
-    margin: 0;
-}
-
-.rating-result>span.active {
-    color: #FFC700;
-}
-
-.more_review {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-} */
 
 /* __________footer____________ */
 footer {
@@ -300,7 +283,9 @@ footer {
 .map {
     border-radius: 25px;
 }
-
+.card-footer, .card-header{
+    background: none;
+}
 
 
 
@@ -475,16 +460,17 @@ table {
         font-size: 24px;
         line-height: 29px;
     }
+    .slogan {
+        height: 670px;
+    }
+    .pixel_on_slogan{
+        height: 400px;
+    }
 }
 
 @media screen and (max-width:430px) {
     .mobile-screen {
         display: none;
-    }
-
-    .pixel_on_slogan {
-        height: 410px;
-
     }
 
     .social_media_icon_how {
@@ -528,5 +514,12 @@ table {
     .review-text {
         text-align: left;
 
+    }
+
+    .slogan {
+        height: 670px;
+    }
+    .pixel_on_slogan{
+        height: 380px;
     }
 }

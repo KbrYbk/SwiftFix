@@ -74,7 +74,9 @@ class AdminController extends Controller
             $imgSloganName = time() . '_slogan.' . $imgSlogan->getClientOriginalExtension();
             
             // Применяем изменения размера изображения
-            $resizedImageSlogan = Image::make($imgSlogan)->resize(800, 600);
+            $resizedImageSlogan = Image::make($imgSlogan)->resize(null, 1000, function ($constraint) {
+                $constraint->aspectRatio();
+            });
             $resizedImageSlogan->save(public_path('images') . '/' . $imgSloganName);
             
             $brand->img_slogan = $imgSloganName;
