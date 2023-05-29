@@ -23,7 +23,7 @@ use App\Http\Controllers\ReviewController; //контроллер с отзыв�
 Auth::routes();
 
 //главная страница
-Route::get('/', [PhoneBrand::class, 'main'])->name('main');//вывод брендов и отзывов на главную страницу
+Route::get('/', [PhoneBrand::class, 'main'])->name('main'); //вывод брендов и отзывов на главную страницу
 Route::post('/callback-request', [CallbackControler::class, 'callback'])->name('callback');
 
 //страница где нас найти
@@ -33,24 +33,32 @@ Route::get('/HowToContact', function () {
 
 //таблица услуг
 Route::get('/services', [ServicesController::class, 'services'])->name('ServicesController'); // услуги
+
 //страница бренда
 Route::get('/brandpage/{id}', [BrandController::class, 'output'])->name('BrandPage');
+
 //админ
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
+
     // ______________________________________________________Ссылки на удаление________________________________________________
     Route::get('/admin/brand/delete/{id}', [AdminController::class, 'delete_phonebrands'])->name('delbrand')->middleware('admin'); //удаление бренда с главной страницы
     Route::get('/admin/callback/delete/{id}', [AdminController::class, 'delete_callback'])->name('delcall')->middleware('admin'); //удаление заявки на звонок
     Route::get('/admin/services/delete/{id}', [AdminController::class, 'delete_services'])->name('delserv')->middleware('admin'); //удаление услуги из таблицы
+
     //_______________________________________________________Ссылки на создание_________________________________________________
-    Route::post('/brands', [AdminController::class, 'store'])->name('brands.store')->middleware('admin'); //страница на форму добавления бренда
-    Route::get('/brands/create', [AdminController::class, 'create'])->name('brands.create')->middleware('admin'); //отправка информации из формы добавления бренда
-    Route::post('/services', [AdminController::class, 'storeservices'])->name('services.store')->middleware('admin'); //страница на форму добавления услуги в таблицу
-    Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin'); //отправка информации из формы добавления услуги в таблицу
+    Route::post('/brands', [AdminController::class, 'store'])->name('brands.store')->middleware('admin'); //отправка информации из формы добавления бренда
+    Route::get('/brands/create', [AdminController::class, 'create'])->name('brands.create')->middleware('admin'); //страница на форму добавления бренда
+    Route::post('/services', [AdminController::class, 'storeservices'])->name('services.store')->middleware('admin'); //отправка информации из формы добавления услуги в таблицу
+    Route::get('/services/create', [AdminController::class, 'createservices'])->name('services.create')->middleware('admin'); //страница на форму добавления услуги в таблицу
+
+    //_______________________________________________________Ссылки на редактирование_________________________________________________
+    Route::get('/brands/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit')->middleware('admin');
+    Route::put('/brands/{brand}', [BrandController::class, 'update'])->name('brands.update')->middleware('admin');
 });
 
 //пользователь
-Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload');
+Route::get('/home', [HomeController::class, 'index'])->name('home');//страница пользователя
 
-Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload');//загрузка аватара
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');//загрузка отзыва
