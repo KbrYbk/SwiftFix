@@ -26,7 +26,7 @@
 
 <body>
     <header id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{url('svg')}}/Logo.svg" alt="">
