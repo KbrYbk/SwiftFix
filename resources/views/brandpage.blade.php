@@ -1,21 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($phone as $ph)
-<section class="slogan-container" style="background-color: {{$ph->color}};">
+<section class="slogan-container" style="background-color: {{$brand->color}};">
     <div class="container">
         <div class="slogan mb-5 row align-items-center">
-            <div class="col-lg-6 order-lg-2" style="color: {{$ph->text}};">
-                <h2 class="mb-4 slogan-top">Ремонт смартфонов {{$ph->name}}</h2>
+            <div class="col-lg-6 order-lg-2" style="color: {{$brand->text}};">
+                <h2 class="mb-4 slogan-top">Ремонт смартфонов {{$brand->name}}</h2>
                 <h2 class="slogan-text">Восстановите свою мобильную жизнь в мгновение ока!</h2>
             </div>
             <div class="col-lg-6 order-lg-1 text-center">
-                <img src="{{ asset('images/' . $ph->img_slogan) }}" alt="{{$ph->name}}" class="pixel_on_slogan mx-auto">
+                <img src="{{ asset('images/' . $brand->img_slogan) }}" alt="{{$brand->name}}" class="pixel_on_slogan mx-auto">
             </div>
         </div>
     </div>
 </section>
-@endforeach
 <section class="container">
     <h1 class="text-center my-5 name-section">Сколько стоит ремонт телефона?</h1>
     <table class="table table-borderless table-striped-columns align-middle">
@@ -27,10 +25,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($services as $sv)
+            @foreach($brandPrices as $sv)
             <tr class="table-primary">
                 <th scope="row" class="col-8">{{$sv->name}}</th>
-                <td class="col-2">{{$sv->price}}</td>
+                <td class="col-2">от {{$sv->pivot->price}} руб.</td>
                 <td class="col-1 mobile-screen"><button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Записаться</button></td>
             </tr>
             @endforeach

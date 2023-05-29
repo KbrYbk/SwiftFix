@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 text-center text-md-start ">
                                 <button type="submit" class="btn btn-outline-secondary">
                                     {{ __('Регистация') }}
                                 </button>

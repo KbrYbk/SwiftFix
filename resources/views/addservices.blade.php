@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container pt-4">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card main-form">
@@ -20,6 +21,7 @@
                             <input type="text" name="price" class="form-control" required>
                         </div>
 
+                        <h6 class="text-danger">*При добавлении услуги не забудьте обновить цену у бренда</h6>
                         <button type="submit" class="btn btn-outline-secondary">Добавить</button>
                     </form>
                 </div>

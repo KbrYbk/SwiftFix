@@ -38,14 +38,15 @@
                     <h5 class="card-title-brand text-center">{{$ph->name}}</h5>
                 </div>
                 <div class="card-footer">
-                    <a href="{{url('/admin/brand/delete/')}}/{{$ph->id}}" class="btn btn-outline-secondary">Удалить бренд</a>
+                    <a href="{{ route('brands.edit', $ph->id) }}" class="btn btn-outline-secondary w-100 mt-2">Редактировать</a>
+                    <a href="{{url('/admin/brand/delete/')}}/{{$ph->id}}" class="btn btn-outline-secondary w-100 mt-2">Удалить</a>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
     <a href="{{url('/brands/create')}}" class="btn btn-outline-secondary mt-3">Добавить бренд</a>
- 
+
     <!-- Блок с услугами -->
     <h4 class="text-center my-4">Услуги</h4>
     <div class="row row-cols-5">
