@@ -77,9 +77,9 @@
 
                         <div class="row mb-3">
                             <div class="col-md-4 col-1 col-form-label text-md-end">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                             </div>
-                            <label for="password-confirm" class="col-md-6 col">{{ __(' Я принимаю условия пользовательского соглашения и согласен на обработку персональных данных') }}</label>
+                            <label for="password-confirm" class="col-md-6 col">Я принимаю <a href="{{route('agreement')}}" class="link-primary">условия пользовательского соглашения</a> и согласен на <a href="{{route('personalData')}}" class="link-primary">обработку персональных данных</a></label>
                         </div>
 
                         <div class="row mb-0">

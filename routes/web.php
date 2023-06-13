@@ -20,7 +20,7 @@ use App\Http\Controllers\ReviewController; //контроллер с отзыв�
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 //главная страница
 Route::get('/', [PhoneBrand::class, 'main'])->name('main'); //вывод брендов и отзывов на главную страницу
@@ -58,7 +58,15 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //пользователь
-Route::get('/home', [HomeController::class, 'index'])->name('home');//страница пользователя
+Route::get('/home', [HomeController::class, 'index'])->name('home'); //страница пользователя
 
-Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload');//загрузка аватара
-Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');//загрузка отзыва
+Route::post('/avatar/upload', [HomeController::class, 'uploadAvatar'])->name('avatar.upload'); //загрузка аватара
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store'); //загрузка отзыва
+
+Route::get('/agreement', function () {
+    return view('rules.agreement');
+})->name('agreement');//страница с условиями пользовательского соглашения
+
+Route::get('/personaldata', function () {
+    return view('rules.personalData');
+})->name('personalData');//страница с условиями пользовательского соглашения

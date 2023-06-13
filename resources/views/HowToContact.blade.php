@@ -74,11 +74,25 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-lg mb-3"><input type="text" class="form-control" name="name" id="name" placeholder="Ваше имя" required></div>
                     <div class="col-12 col-lg mb-3"><input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Ваш номер телефона" required></div>
-                    <div class="col-12 mb-3"><input type="text" class="form-control que" name="device_model" id="" placeholder="Интересующий ваш вопрос" required></div>
+                    <div class="col-12 mb-3"><input type="text" class="form-control que" name="device_model" id="device_model" placeholder="Интересующий ваш вопрос" required></div>
                     <div class="col text-center mb-3"><button type="submit" class="btn btn-outline-secondary">Отправить вопрос</button></div>
                 </div>
             </form>
-
+            <div class="overlay" id="modal-2">
+                <div class="flex-popap">
+                    <div class="popap popap-success d-flex align-items-center justify-content-center">
+                        <span class="close_popap" onclick="myFunction()">Закрыть</span>
+                        <h1 class="text-center mb-4 name-block">Отлично! <br>
+                            Перезвоним вам в течении получаса</h1>
+                    </div>
+                </div>
+            </div>
+             <script>
+        function myFunction() {
+            var element = document.getElementById("modal-2");
+            element.classList.remove("active");
+        }
+    </script>
         </div>
     </div>
 </section>

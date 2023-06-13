@@ -29,7 +29,9 @@
             <tr class="table-primary">
                 <th scope="row" class="col-8">{{$sv->name}}</th>
                 <td class="col-2">от {{$sv->pivot->price}} руб.</td>
-                <td class="col-1 mobile-screen"><button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Записаться</button></td>
+                <td class="col-1 mobile-screen">
+                    <button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Записаться</button>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -50,7 +52,7 @@
                         @enderror
                     </div>
                     <div class="col-12 col-lg mb-3">
-                        <input type="text" name="device_model" id="device_model" class="form-control" placeholder="Модель вашего устройства" required>
+                        <input type="text" name="device_model" id="device_model" class="form-control" placeholder="Модель вашего устройства" required value="{{$brand->name}}">
                         @error('device_model')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -62,11 +64,29 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <!-- поле с выбором -->
+                    <!-- <div class="col-12 mb-3">
+                        <select class="form-select" name="service_id" aria-label="Что случилось с телефоном?">
+                            <option selected>{{$sv->name}}</option>
+                            @foreach($brandPrices as $sv)
+                            <option value="{{$sv->id}}">{{$sv->name}}</option>
+                            @endforeach
+                        </select>
+                    </div> -->
                     <div class="col-12 mb-3 text-center">
                         <button type="submit" class="btn btn-outline-secondary">Записаться</button>
                     </div>
                 </div>
             </form>
+            <div class="overlay" id="modal-2">
+                <div class="flex-popap">
+                    <div class="popap popap-success d-flex align-items-center justify-content-center">
+                        <span class="close_popap" onclick="myFunction()">Закрыть</span>
+                        <h1 class="text-center mb-4 name-block">Отлично! <br>
+                            Перезвоним вам в течении получаса</h1>
+                    </div>
+                </div>
+            </div>
             <h1 class="text-center mb-4 name-block">Или напишите нам в месенджер</h1>
             <div class="social_media d-flex w-100 mb-5 text-center">
                 <a href="https://t.me/SwiftFixOmsk" target="_blank" class="social_media_icon social_media_icon_how">

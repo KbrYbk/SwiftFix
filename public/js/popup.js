@@ -1,7 +1,7 @@
 //всплывающая форма
-function show_popap(id_popap) {
-    var id = "#" + id_popap;
-    $(id).addClass('active');
+function show_popap(popap_id, serviceId) {
+    var x = document.getElementById(popap_id);
+    x.classList.add("active");
 }
 
 function myFunction() {
