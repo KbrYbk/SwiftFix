@@ -11,7 +11,8 @@ $(function() {
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function(data) {
-                alert('Отлично! Перезвоним вам в течение получаса');
+                $('#modal-2').addClass('active');
+                frm[0].reset(); // Очистка полей формы
             },
             error: function(xhr) {
                 if (xhr.status === 422) {

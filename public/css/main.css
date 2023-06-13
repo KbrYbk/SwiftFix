@@ -110,9 +110,11 @@ header {
     overflow: hidden;
     height: 572px;
 }
-.pixel_on_slogan{
+
+.pixel_on_slogan {
     height: 572px;
 }
+
 /* _____________brands________________ */
 .cards-brands {
     background-color: #D6E2DB;
@@ -163,7 +165,7 @@ header {
     border: 2px solid;
     justify-content: center;
     align-items: center;
-    padding: 10px  13px;
+    padding: 10px 13px;
     gap: 10px;
     font-size: 14px;
     line-height: 17px;
@@ -190,6 +192,11 @@ header {
 
 .form-control#phone_number {
     border: 2px solid #7C8C9D;
+}
+
+.form-check-input:checked {
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
 /* _______Additional services______ */
@@ -283,7 +290,9 @@ footer {
 .map {
     border-radius: 25px;
 }
-.card-footer, .card-header{
+
+.card-footer,
+.card-header {
     background: none;
 }
 
@@ -380,6 +389,15 @@ table {
     cursor: pointer;
 }
 
+.popap-success {
+    width: 630px !important;
+    height: 296px !important;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    ;
+}
+
 /* ________________________________Страница пользователя____________________________________________ */
 /* аватарки */
 
@@ -460,12 +478,15 @@ table {
         font-size: 24px;
         line-height: 29px;
     }
+
     .slogan {
         height: 670px;
     }
-    .pixel_on_slogan{
+
+    .pixel_on_slogan {
         height: 400px;
     }
+
 }
 
 @media screen and (max-width:430px) {
@@ -519,7 +540,8 @@ table {
     .slogan {
         height: 670px;
     }
-    .pixel_on_slogan{
+
+    .pixel_on_slogan {
         height: 380px;
     }
 }

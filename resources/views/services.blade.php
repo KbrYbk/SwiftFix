@@ -6,7 +6,7 @@
     <table class="table table-borderless table-striped-columns align-middle">
         <thead>
             <tr class="table-secondary">
-                <th scope="col" class="text-center col-8">Услуга</th>
+                <th scope="col" class="text-center col-8 mobile-table">Услуга</th>
                 <th scope="col" class="col-2">Цена</th>
                 <th scope="col" class="text-center col-1 mobile-screen">Заказать</th>
             </tr>
@@ -14,16 +14,16 @@
         <tbody>
             @foreach($services as $sv)
             <tr class="table-primary">
-                <th scope="row" class="col-8">{{$sv->name}}</th>
+                <th scope="row" class="col-8 mobile-table">{{$sv->name}}</th>
                 <td class="col-2">от {{$sv->price}} руб.</td>
                 <td class="col-1 mobile-screen">
-                    <button onclick="show_popap('modal-1')" type="submit" class="btn btn-outline-secondary">Записаться</button>
+                    <button onclick="show_popap('modal-1'), selectService({{$sv->id}})" type="submit" class="btn btn-outline-secondary">Записаться</button>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    
+
     <div class="overlay" id="modal-1">
         <div class="flex-popap">
             <div class="popap">
@@ -53,6 +53,15 @@
                         </div>
                         <div class="col-12 mb-3 text-center">
                             <button type="submit" class="btn btn-outline-secondary">Записаться</button>
+                        </div>
+                        <div class="overlay" id="modal-2">
+                            <div class="flex-popap">
+                                <div class="popap popap-success d-flex align-items-center justify-content-center">
+                                    <span class="close_popap" onclick="myFunction()">Закрыть</span>
+                                    <h1 class="text-center mb-4 name-block">Отлично! <br>
+                                        Перезвоним вам в течении получаса</h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -54,6 +54,9 @@ class RegisterController extends Controller
             'login' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            //'accept_terms' => ['accepted'], // Добавлено новое правило валидации
+        //], [
+        //    'accept_terms.accepted' => 'Вы должны принять условия пользовательского соглашения.',
         ]);
     }
 

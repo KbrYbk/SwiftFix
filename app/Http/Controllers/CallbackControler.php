@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Callback;
+use App\Models\Services;
 
 class CallbackControler extends Controller
 {
@@ -21,7 +22,6 @@ class CallbackControler extends Controller
 
         $callbackRequest = Callback::create($validatedData);
 
-        // Дополнительные действия, если необходимо
         return redirect()->back();
     }
 }
