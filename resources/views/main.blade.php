@@ -51,13 +51,28 @@
             </div>
             <div class="col-12 col-lg mb-3">
                 <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder=" Ваш номер телефона" required>
-    
+
             </div>
             <div class="col-12 col-lg-2 mb-3 text-center">
-                <button type="submit" class="btn btn-outline-secondary">Отправить</button>
+                <button type="submit" class="btn btn-outline-secondary" onclick="myFunction()">Отправить</button>
             </div>
         </div>
     </form>
+    <div class="overlay" id="modal-2">
+        <div class="flex-popap">
+            <div class="popap popap-success d-flex align-items-center justify-content-center">
+                <span class="close_popap" onclick="myFunction()">Закрыть</span>
+                <h1 class="text-center mb-4 name-block">Отлично! <br>
+                    Перезвоним вам в течении получаса</h1>
+            </div>
+        </div>
+    </div>
+     <script>
+        function myFunction() {
+            var element = document.getElementById("modal-2");
+            element.classList.remove("active");
+        }
+    </script>
 </section>
 <!-- _________________________________Additional services______________________________________________ -->
 <section class="container my-4">
@@ -95,8 +110,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer d-flex card-footer-review">
-                    <div class="rating-result d-flex me-auto">
+                <div class="card-footer d-md-flex card-footer-review">
+                    <div class="rating-result me-auto">
                         @for ($i = 1; $i <= 5; $i++) @if ($i <=$review->rating)
                             <span class="star-filled">★</span>
                             @else
