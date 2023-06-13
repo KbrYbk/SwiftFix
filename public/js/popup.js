@@ -8,3 +8,5 @@ function myFunction() {
     var element = document.getElementById("modal-1");
     element.classList.remove("active");
   }
+
+  
