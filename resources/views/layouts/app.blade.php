@@ -20,6 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{{asset('js')}}/form-validation.js"></script>
     <script src="{{asset('js')}}/popup.js"></script>
+    <script src="{{asset('js')}}/brandscroll.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('css')}}/main.css">
 </head>

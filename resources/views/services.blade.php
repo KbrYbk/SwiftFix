@@ -51,6 +51,10 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="col-12 text-center my-3">
+                            <input class="form-check-input" type="checkbox" value="" id="agreementCheckbox" required>
+                            <label class="ms-2">Я принимаю <a href="{{route('agreement')}}" class="link-primary">условия пользовательского соглашения</a> и согласен на <a href="{{route('personalData')}}" class="link-primary">обработку персональных данных</a></label>
+                        </div>
                         <div class="col-12 mb-3 text-center">
                             <button type="submit" class="btn btn-outline-secondary">Записаться</button>
                         </div>

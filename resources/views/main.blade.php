@@ -56,6 +56,10 @@
             <div class="col-12 col-lg-2 mb-3 text-center">
                 <button type="submit" class="btn btn-outline-secondary" onclick="myFunction()">Отправить</button>
             </div>
+            <div class="col-12 text-center mt-3">
+                <input class="form-check-input" type="checkbox" value="" id="agreementCheckbox" required>
+                <label class="ms-2">Я принимаю <a href="{{route('agreement')}}" class="link-primary">условия пользовательского соглашения</a> и согласен на <a href="{{route('personalData')}}" class="link-primary">обработку персональных данных</a></label>
+            </div>
         </div>
     </form>
     <div class="overlay" id="modal-2">
@@ -67,7 +71,7 @@
             </div>
         </div>
     </div>
-     <script>
+    <script>
         function myFunction() {
             var element = document.getElementById("modal-2");
             element.classList.remove("active");

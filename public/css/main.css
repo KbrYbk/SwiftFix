@@ -199,6 +199,9 @@ header {
     border-color: #6c757d;
 }
 
+label{
+    display: inline;
+}
 /* _______Additional services______ */
 .additional_services {
     background-color: #F1E2C5;
@@ -484,7 +487,7 @@ table {
     }
 
     .pixel_on_slogan {
-        height: 400px;
+        height: 450px;
     }
 
 }
@@ -542,6 +545,6 @@ table {
     }
 
     .pixel_on_slogan {
-        height: 380px;
+        height: 370px;
     }
 }
