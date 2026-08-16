@@ -12,6 +12,10 @@ $(function () {
                 type: frm.attr('method'),
                 url: frm.attr('action'),
                 data: frm.serialize(),
+                beforeSend: function () {
+                    // Добавляем состояние загрузки
+                    $('#loading').show();
+                },
                 success: function (data) {
                     $('#modal-2').addClass('active');
                     frm[0].reset(); // Очистка полей формы
@@ -28,13 +32,22 @@ $(function () {
                                 input.after('<div class="alert alert-danger mt-3">' + message + '</div>');
                             });
                         });
+                    } else if (xhr.status === 429) {
+                        alert('Слишком много запросов. Попробуйте позже.');
                     } else {
                         alert('Ошибка! Проверьте правильность заполнения формы.');
                     }
+                },
+                complete: function () {
+                    // Удаляем состояние загрузки
+                    $('#loading').hide();
                 }
             });
         } else {
             alert('Пожалуйста, примите условия пользовательского соглашения и согласие на обработку персональных данных.');
         }
     });
+
+    // Инициализация маски ввода для номера телефона
+    $('#phone_number').inputmask('+7 999-999-99-99');
 });

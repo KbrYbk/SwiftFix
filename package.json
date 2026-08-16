@@ -16,5 +16,8 @@
     },
     "dependencies": {
         "jquery": "^3.6.4"
+    },
+    "overrides": {
+        "esbuild": "^0.25.0"
     }
 }

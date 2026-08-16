@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8">
@@ -18,14 +18,18 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
     <script src="{{asset('js')}}/form-validation.js"></script>
     <script src="{{asset('js')}}/popup.js"></script>
     <script src="{{asset('js')}}/brandscroll.js"></script>
     <!-- CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css')}}/main.css">
 </head>
 
 <body>
+
     <header id="app">
         <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
             <div class="container">
@@ -62,7 +66,7 @@
                         </li>
                         @endif
                         @guest
-                       <!--  @if (Route::has('login'))
+                        <!--  @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
                         </li>
@@ -107,7 +111,7 @@
     <main class="pb-4">
         @yield('content')
     </main>
-    <footer class="text-center">
+    <footer class="text-center" data-aos="fade-up">
         <a href="#"><img src="{{url('svg/')}}/Logo.svg" alt="logo"></a>
         <p class="mt-3">Не нашли что искали?<br>Напишите нам и мы вам поможем!</p>
         <div class="social_media d-flex">
@@ -128,6 +132,10 @@
             </a>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

@@ -93,18 +93,18 @@ class AdminController extends Controller
             $brandServicePrice = new BrandServicePrice();
             $brandServicePrice->phonebrands_id = $brand->id;
             $brandServicePrice->services_id = $serviceId;
-    
+
             // Получить цену из таблицы services, если не было изменений
             $originalPrice = Services::find($serviceId)->price;
-    
+
             // Если цена была изменена, то использовать новую цену, иначе использовать оригинальную цену
             $brandServicePrice->price = $price !== $originalPrice ? $price : $originalPrice;
-            
+
             $brandServicePrice->save();
         }
         return redirect()->route('admin')->with('success', 'Бренд успешно добавлен');
     }
-    
+
     //________________________таблицы_______________________________________________
     //ссылка на отправку формы добавления услуги
     public function createservices()
@@ -126,5 +126,15 @@ class AdminController extends Controller
         $service->save();
 
         return redirect()->route('admin')->with('success', 'Бренд успешно добавлен');
+    }
+    //________________________обновление заявки_______________________________________________
+
+    public function updateStatus(Request $request, $id)
+    {
+        $callback = Callback::findOrFail($id);
+        $callback->status = $request->input('status');
+        $callback->save();
+
+        return redirect()->back()->with('success', 'Статус заявки успешно обновлен.');
     }
 }

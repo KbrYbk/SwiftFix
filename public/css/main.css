@@ -154,6 +154,56 @@ header {
     /*убирает нижний скрол у брендов*/
 }
 
+.menu-container {
+    position: relative;
+}
+
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    display: none;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.arrow-left {
+    left: 10px;
+    content: "<";
+    color: #fff;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow-left::before {
+    content: '<';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #cccccc;
+}
+
+.arrow-right::after {
+    content: '>';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #cccccc;
+}
+
+/* Остальной CSS-код для стрелок остается без изменений */
+
 /* ____________callback_____________ */
 .main-form {
     background-color: #FAF7F4;
@@ -199,9 +249,10 @@ header {
     border-color: #6c757d;
 }
 
-label{
+label {
     display: inline;
 }
+
 /* _______Additional services______ */
 .additional_services {
     background-color: #F1E2C5;
@@ -309,7 +360,7 @@ footer {
 
 .que {
     border: 2px solid #7C8C9D;
-    height: 181px;
+    height: 240px;
 }
 
 .social_media_icon_how {
@@ -449,7 +500,14 @@ table {
     /* Цвет пустых звездочек */
 }
 
+
 /* __________________________________mobile screens___________________ */
+@media screen and (max-width:1200px) {
+    .mobile-price {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width:991px) {
     .slogan {
         padding-top: 56px;
@@ -487,9 +545,14 @@ table {
     }
 
     .pixel_on_slogan {
-        height: 450px;
+        height: 465px;
     }
 
+    .mobile-price {
+        padding: 0 10px !important;
+        font-size: 20px;
+        width: 40%;
+    }
 }
 
 @media screen and (max-width:430px) {
@@ -545,6 +608,12 @@ table {
     }
 
     .pixel_on_slogan {
-        height: 370px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .pixel_on_slogan {
+        height: 270px;
     }
 }

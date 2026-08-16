@@ -17,7 +17,7 @@ class CallbackControler extends Controller
         ], [
             'device_model.regex' => 'Неверный формат ввода. <br> Пример правильного ввода: Samsung Galaxy S10',
             'name.regex' => 'Неверный формат ввода. <br>Пример правильного ввода: Иван Иванов',
-            'phone_number.regex' => 'Неверный формат ввода. <br> Пожалуйста, введите номер телефона в формате +7 или 8 999-999-99-99.',
+            'phone_number.regex' => 'Неверный формат ввода. <br> Пожалуйста, введите номер телефона в формате +7 999-999-99-99.',
         ]);
 
         $callbackRequest = Callback::create($validatedData);
