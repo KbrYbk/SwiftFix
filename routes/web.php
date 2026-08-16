@@ -24,7 +24,8 @@ Auth::routes(['register' => false]);
 
 //главная страница
 Route::get('/', [PhoneBrand::class, 'main'])->name('main'); //вывод брендов и отзывов на главную страницу
-Route::post('/callback-request', [CallbackControler::class, 'callback'])->name('callback');
+Route::post('/callback-request', [CallbackControler::class, 'callback'])->middleware('throttle:3,30')->name('callback');
+
 
 //страница где нас найти
 Route::get('/HowToContact', function () {
@@ -55,6 +56,10 @@ Route::group(['middleware' => 'auth'], function () {
     //_______________________________________________________Ссылки на редактирование_________________________________________________
     Route::get('/brands/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit')->middleware('admin');
     Route::put('/brands/{brand}', [BrandController::class, 'update'])->name('brands.update')->middleware('admin');
+
+    //_______________________________________________________Ссылки на редактирование_________________________________________________
+    Route::post('/admin/callback/update-status/{id}', [AdminController::class, 'updateStatus'])->name('status.update')->middleware('admin');
+
 });
 
 //пользователь

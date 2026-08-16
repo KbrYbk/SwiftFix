@@ -2,9 +2,9 @@
 
 @section('content')
 <section class="container">
-    <h1 class="text-center my-5 name-section">Как с нами связаться?</h1>
+    <h1 class="text-center my-5 name-section" data-aos="fade-down">Как с нами связаться?</h1>
     <div class="row row-cols-lg-2 row-cols-1 mb-5">
-        <div class="col mb-5">
+        <div class="col mb-5" data-aos="fade-right">
             <!--ГДЕ НАХОДИМСЯ-->
             <div class="where">
                 <h2 class="my-3">Мы находимся по адресу:</h2>
@@ -48,6 +48,20 @@
                     </div>
                     <div class="col">
                         <h3><a href="mailto:swift-fix@gmail.com" class="link">swift-fix@gmail.com</a></h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="mail">
+                <h2 class="my-3">Почта технической поддержки:</h2>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-1">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.3333 5.66667H5.66659C4.10825 5.66667 2.83325 6.94167 2.83325 8.5V25.5C2.83325 27.0583 4.10825 28.3333 5.66659 28.3333H28.3333C29.8916 28.3333 31.1666 27.0583 31.1666 25.5V8.5C31.1666 6.94167 29.8916 5.66667 28.3333 5.66667ZM27.7666 11.6875L18.5016 17.4817C17.5808 18.0625 16.4191 18.0625 15.4983 17.4817L6.23325 11.6875C6.0912 11.6078 5.9668 11.5 5.86759 11.3708C5.76838 11.2416 5.69642 11.0936 5.65607 10.9358C5.61571 10.7779 5.6078 10.6136 5.63281 10.4526C5.65782 10.2916 5.71523 10.1374 5.80157 9.99926C5.88791 9.86112 6.00138 9.74193 6.13511 9.64891C6.26885 9.55589 6.42007 9.49098 6.57962 9.45809C6.73917 9.42521 6.90374 9.42504 7.06335 9.45759C7.22297 9.49015 7.37433 9.55476 7.50825 9.6475L16.9999 15.5833L26.4916 9.6475C26.6255 9.55476 26.7769 9.49015 26.9365 9.45759C27.0961 9.42504 27.2607 9.42521 27.4202 9.45809C27.5798 9.49098 27.731 9.55589 27.8647 9.64891C27.9985 9.74193 28.1119 9.86112 28.1983 9.99926C28.2846 10.1374 28.342 10.2916 28.367 10.4526C28.392 10.6136 28.3841 10.7779 28.3438 10.9358C28.3034 11.0936 28.2315 11.2416 28.1322 11.3708C28.033 11.5 27.9086 11.6078 27.7666 11.6875Z" fill="black" />
+                        </svg>
+                    </div>
+                    <div class="col">
+                        <h3><a href="mailto:techswift-fix@gmail.com" class="link">techswift-fix@gmail.com</a></h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +81,7 @@
             </div>
             <div class="col"></div>
         </div>
-        <div class="col form">
+        <div class="col form " data-aos="fade-left">
             <form action="{{route('callback')}}" method="POST" class="form-howtocontact p-5 h-100" name="form1">
                 <h3 class="text-center mb-4">Напишите нам<br>Ответим в ближайшее время</h3>
                 @csrf
@@ -82,25 +96,26 @@
                     <div class="col text-center mb-3"><button type="submit" class="btn btn-outline-secondary">Отправить вопрос</button></div>
                 </div>
             </form>
-            <div class="overlay" id="modal-2">
-                <div class="flex-popap">
-                    <div class="popap popap-success d-flex align-items-center justify-content-center">
-                        <span class="close_popap" onclick="myFunction()">Закрыть</span>
-                        <h1 class="text-center mb-4 name-block">Отлично! <br>
-                            Перезвоним вам в течении получаса</h1>
-                    </div>
-                </div>
-            </div>
-            <script>
-                function myFunction() {
-                    var element = document.getElementById("modal-2");
-                    element.classList.remove("active");
-                }
-            </script>
+</section>
+<div class="overlay" id="modal-2">
+    <div class="flex-popap">
+        <div class="popap popap-success d-flex align-items-center justify-content-center">
+            <span class="close_popap" onclick="myFunction()">Закрыть</span>
+            <h1 class="text-center mb-4 name-block">Отлично! <br>
+                Перезвоним вам в течении получаса</h1>
         </div>
     </div>
-</section>
-<section class="container">
+</div>
+<script>
+    function myFunction() {
+        var element = document.getElementById("modal-2");
+        element.classList.remove("active");
+    }
+</script>
+</div>
+</div>
+
+<section class="container" data-aos="fade-up">
     <h1 class="text-center my-5 name-section">Наши социальные сети</h1>
     <div class="social_media d-flex w-100 mb-5 text-center">
         <a href="https://t.me/SwiftFixOmsk" target="_blank" class="social_media_icon social_media_icon_how">
@@ -123,7 +138,7 @@
         </a>
     </div>
 </section>
-<section class="container">
-    <iframe class="map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A41c5d883898e43229ab54a066031145dfe95f410b3a80e5e5d827766864acd9d&amp;source=constructor" width="100%" height="640" frameborder="0"></iframe>
+<section class="container" data-aos="fade-up">
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=37.617700%2C55.755863&z=11" width="100%" height="640" frameborder="0"></iframe>
 </section>
 @endsection

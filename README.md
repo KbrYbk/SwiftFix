@@ -1,66 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📱 SwiftFix — Phone Repair Portal
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="README.ru.md">🇷🇺 Русская версия</a> | <b>🇺🇸 English Version</b>
 </p>
 
-## About Laravel
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org)
+[![Vite](https://img.shields.io/badge/Vite-4.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.2-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**SwiftFix** is a full-stack web application for a phone repair service center, built on **Laravel 10**. The project provides a user-friendly interface for browsing repair services, supported phone brands, reading reviews, submitting callback requests, and includes a full-featured admin dashboard.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> **About the project:** This repository represents one of my commercial full-stack projects, developed as an MVP for a real service center. It is not just a Landing Page, but a complete CRM/CMS system with a database and role-based access control.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Features and Interface
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🧑‍💻 Client Side (Frontend)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The user interface is fully responsive and offers easy navigation through services and brands. Dynamic pricing allows hiding prices (displaying "Free") for specific services automatically.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<details>
+  <summary><b>👀 View the full Main Page design (Click here)</b></summary>
+  <br>
+  <img src="screenshots/main.png" alt="Main Page">
+</details>
 
-## Laravel Sponsors
+<br>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+| All Services Pricing | Brand Specific Services (Apple) |
+| :---: | :---: |
+| <img src="screenshots/services.png" width="400"> | <img src="screenshots/brand_page_1.png" width="400"> |
+| *Dynamic price list with smart formatting (from N / Free)* | *Filtering services for a specific brand* |
 
-### Premium Partners
+| Brand Specific Services (Xiaomi) | Contacts Page |
+| :---: | :---: |
+| <img src="screenshots/brand_page_2.png" width="400"> | <img src="screenshots/contacts.png" width="400"> |
+| *Automatic logo and price binding* | *Integration with Yandex Maps and contact info* |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### 🛡️ Admin Dashboard
 
-## Contributing
+A secure area for managing website content. The administrator can process incoming leads, as well as add, delete, and edit brands and services.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Dashboard & Leads | Editing a Brand |
+| :---: | :---: |
+| <img src="screenshots/admin.png" width="400"> | <img src="screenshots/admin_edit.png" width="400"> |
+| *CRM module: viewing and managing client requests* | *CRUD operations: editing brands and uploading images* |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🛠 Tech Stack
 
-## Security Vulnerabilities
+- **Backend:** [Laravel 10](https://laravel.com/) (PHP 8.1+)
+- **Frontend:** HTML5, CSS3, JS using [Vite](https://vitejs.dev/)
+- **Styling:** [Bootstrap 5](https://getbootstrap.com/) and SCSS, animations via AOS.js
+- **Database:** SQLite / MySQL (via Eloquent ORM)
+- **Extras:** Axios, jQuery, Intervention Image
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ⚙️ Installation & Setup
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Requirements
+
+- Node.js and npm
+- PHP `>= 8.1`
+- Composer
+
+### Instructions
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/KbrYbk/SwiftFix.git
+   cd SwiftFix
+   ```
+
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
+
+3. **Install Node dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Setup environment variables:**
+   Copy the example file and generate the app key:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+   *The database is configured to use SQLite by default.*
+
+5. **Run migrations and seeders:**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. **Start the server:**
+   ```bash
+   php -S 127.0.0.1:8000 -t public
+   ```
+   The site will be available at `http://localhost:8000`.
+
+   **Admin Panel Access:** 
+   Login: `admin`
+   Password: `admin`
+
+---
+
+## 📂 Project Architecture
+
+```text
+SwiftFix/
+├── app/
+│   ├── Http/Controllers/   # Logic (Admin, Brand, Service, Review)
+│   └── Models/             # Eloquent models
+├── database/
+│   └── migrations/         # Database structure
+├── public/                 # Public assets (images, uploads)
+├── resources/
+│   ├── js/                 # Frontend logic
+│   ├── sass/               # SCSS styles
+│   └── views/              # Blade templates (UI structure)
+└── routes/
+    └── web.php             # Application routing
+```

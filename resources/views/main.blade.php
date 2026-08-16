@@ -5,12 +5,12 @@
 <section class="slogan-container">
     <div class="container">
         <div class="slogan mb-5 row align-items-center">
-            <div class="col-lg-6 order-lg-2">
+            <div class="col-lg-5 order-lg-2" data-aos="fade-down">
                 <h2 class="mb-4 slogan-top">Ремонт телефонов любой сложности</h2>
                 <h2 class="slogan-text">Восстановите свою мобильную жизнь в мгновение ока!</h2>
             </div>
-            <div class="col-lg-6 order-lg-1">
-                <img src="{{url('img/')}}/Pixel.png" alt="pixel7" class="pixel_on_slogan w-100">
+            <div class="col-lg-7 order-lg-1" data-aos="fade-up">
+                <img src="{{url('img/')}}/Pixel.png" alt="pixel7" class="pixel_on_slogan mx-auto">
             </div>
         </div>
 
@@ -19,23 +19,27 @@
 <!-- _________________________________Brand plates_______________________________________________ -->
 <section class="container my-4">
     <h1 class="text-center my-5 name-section">Выберите модель вашего устройства</h1>
-    <nav class="menu d-flex">
-        @foreach($brand as $bp)
-        <div class="nav-scroller__item">
-            <a href="{{url('/brandpage')}}/{{$bp->id}}" class="link">
-                <div class="card cards-brands">
-                    <img src="{{ asset('images/' . $bp->img) }}" alt="logo_brands" class="card-img-top">
-                    <div class="card-body  d-flex align-items-center justify-content-center">
-                        <h5 class="card-title-brand text-center">{{$bp->name}}</h5>
+    <nav class="menu-container">
+        <div class="arrow-left"></div>
+        <nav class="menu d-flex">
+            @foreach($brand as $bp)
+            <div class="nav-scroller__item" data-aos="fade-right">
+                <a href="{{url('/brandpage')}}/{{$bp->id}}" class="link">
+                    <div class="card cards-brands">
+                        <img src="{{ asset('images/' . $bp->img) }}" alt="logo_brands" class="card-img-top">
+                        <div class="card-body  d-flex align-items-center justify-content-center">
+                            <h5 class="card-title-brand text-center">{{$bp->name}}</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        @endforeach
+                </a>
+            </div>
+            @endforeach
+        </nav>
+        <div class="arrow-right"></div>
     </nav>
 </section>
 <!-- _________________________________Callback Form______________________________________________ -->
-<section class="container my-4 ">
+<section class="container my-4 " data-aos="fade-up">
     <h1 class="text-center name-section mt-4">Нет подходящего бренда?</h1>
     <form action="{{ route('callback') }}" method="POST" class="mt-5 p-5 main-form" name="form1">
         <h1 class="text-center mb-4 name-block">Напишите модель вашего устройства,<br>мы вам обязательно позвоним</h1>
@@ -51,7 +55,6 @@
             </div>
             <div class="col-12 col-lg mb-3">
                 <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder=" Ваш номер телефона" required>
-
             </div>
             <div class="col-12 col-lg-2 mb-3 text-center">
                 <button type="submit" class="btn btn-outline-secondary" onclick="myFunction()">Отправить</button>
@@ -62,31 +65,33 @@
             </div>
         </div>
     </form>
-    <div class="overlay" id="modal-2">
-        <div class="flex-popap">
-            <div class="popap popap-success d-flex align-items-center justify-content-center">
-                <span class="close_popap" onclick="myFunction()">Закрыть</span>
-                <h1 class="text-center mb-4 name-block">Отлично! <br>
-                    Перезвоним вам в течении получаса</h1>
-            </div>
+</section>
+<div class="overlay" id="modal-2">
+    <div class="flex-popap">
+        <div class="popap popap-success d-flex align-items-center justify-content-center">
+            <span class="close_popap" onclick="myFunction()">Закрыть</span>
+            <h1 class="text-center mb-4 name-block">Отлично! <br>
+                Перезвоним вам в течении получаса</h1>
         </div>
     </div>
-    <script>
-        function myFunction() {
-            var element = document.getElementById("modal-2");
-            element.classList.remove("active");
-        }
-    </script>
-</section>
+</div>
+
+<script>
+    function myFunction() {
+        var element = document.getElementById("modal-2");
+        element.classList.remove("active");
+    }
+</script>
+
 <!-- _________________________________Additional services______________________________________________ -->
 <section class="container my-4">
     <h1 class="text-center name-section my-5">Полная защита вашего телефона</h1>
     <div class="row additional_services align-items-center g-0">
-        <div class="col-lg-6 order-lg-2 text-center">
+        <div class="col-lg-6 order-lg-2 text-center" data-aos="fade-left">
             <h1 class="name-section mb-5 additional_services_name">Спасём от повторного <br>посещения</h1>
             <h4 class="additional_services_text">После ремонта в нашем сервисе установим на ваше устройство защитное стекло в подарок</h4>
         </div>
-        <div class="col-lg-6 order-lg-1">
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right">
             <img src="{{url('img/')}}/AdditionalServices.png" class="AdditionalServices_img w-100" alt="">
         </div>
     </div>
@@ -102,7 +107,7 @@
         @endphp
         @foreach ($reviews as $index => $review)
         <div class="col mb-4 reviewCard" style="{{ $index >= $visibleReviews ? 'display:none' : '' }}">
-            <div class="card card_rev p-4 h-100">
+            <div class="card card_rev p-4 h-100" data-aos="zoom-in-up">
                 <div class="card-body card-body-rev">
                     <div class="row">
                         <div class="col-12 col-md-4 mb-3">
@@ -133,7 +138,7 @@
     </div>
 
     <div class="mt-3">
-        <button type="button" class="btn btn-outline-secondary" id="toggleReviewsButton">
+        <button type="button" class="btn btn-outline-secondary" id="toggleReviewsButton" data-aos="fade-right">
             @if (count($reviews) > $visibleReviews)
             Ещё отзывы
             @else

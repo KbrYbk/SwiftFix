@@ -16,9 +16,25 @@
                 <div class="card-body">
                     <h3 class="card-title">{{$ph->name}}</h3>
                     <h4 class="card-text">{{$ph->phone_number}}</h4>
-                    <p class="card-text">{{$ph->device_model}}</p>
+                    <h4 class="card-text">{{$ph->device_model}}</h4>
+                    <h5 class="card-text">Статус: {{$ph->status}}</h5>
+                    <h5>{{ $ph->created_at->format('d.m.Y H:i') }}</h5>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer text-center">
+                    <!-- Форма для изменения статуса -->
+                    <form action="{{ url('/admin/callback/update-status/'.$ph->id) }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="status">Изменить статус:</label>
+                            <select name="status" id="status" class="form-select">
+                                <option value="Новая">Новая</option>
+                                <option value="В обработке">В обработке</option>
+                                <option value="Завершена">Завершена</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary mt-2">Сохранить</button>
+                    </form>
+                    <hr>
                     <a href="{{url('/admin/callback/delete/')}}/{{$ph->id}}" class="btn btn-outline-secondary">Удалить заявку</a>
                 </div>
             </div>
